@@ -2,9 +2,10 @@ class CheesePricer
   TAX = 0.1
   DEFAULT_PRICE = 100
   PRICES = {
-    cheddar:  120,
-    swiss:    150,
-    american:  80,
+    cheddar:   90,
+    swiss:    130,
+    american:  90,
+    gouda:    110,
   }
 
   attr_reader :cheese
