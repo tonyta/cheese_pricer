@@ -1,4 +1,12 @@
 class CheesePricer
+  TAX = 0.1
+  DEFAULT_PRICE = 100
+  PRICES = {
+    cheddar:  120,
+    swiss:    150,
+    american:  80,
+  }
+
   attr_reader :cheese
 
   def initialize(cheese)
@@ -6,19 +14,10 @@ class CheesePricer
   end
 
   def price(ounces)
-    subtotal =
-      case cheese
-      when :cheddar
-        ounces * 120
-      when :swiss
-        ounces * 150
-      when :american
-        ounces * 80
-      else
-        ounces * 100
-      end
+    per_oz = PRICES[cheese] || DEFAULT_PRICE
+    subtotal = ounces * per_oz
+    tax = Integer(subtotal * TAX)
 
-    tax = Integer(subtotal * 0.1)
     subtotal + tax
   end
 end
